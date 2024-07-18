@@ -1,0 +1,24 @@
+<h4>List</h4>
+<ul class="list-group">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{
+      'list-group-item-success': isFirst,
+      'list-group-item-primary': isEven,
+    }"
+    *ngFor="
+      let char of characters;
+      let i = index;
+      let isFirst = first;
+      let isEven = even
+    "
+  >
+    <div>
+      <span class="text-primary">{{ i + 1 }}. </span>
+      <span>{{ char.name }} - </span>
+      <strong>Power: </strong>
+      <span>{{ char.power }}</span>
+    </div>
+    <button class="btn btn-danger" (click)="onDeleteCharacter(char.id)">X</button>
+  </li>
+</ul>
